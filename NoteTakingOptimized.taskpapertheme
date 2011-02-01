@@ -1,0 +1,84 @@
+<theme>
+    <color id="foreground" red="0.8392" green="0.8667" blue="0.8000" alpha="1.0" />
+    <color id="background" red="0.1137" green="0.1020" blue="0.0902" alpha="1.0" />
+    <color id="selection" red="" green="" blue="" alpha="1.0" />
+    <color id="lightYellow" red="0.9" green="0.9" blue="0.0" alpha="1.0" />
+    <color id="darkYellow" red="0.9" green="0.7" blue="0.0" alpha="1.0" />
+    <color id="lbackground" red="0.1804" green="0.1490" blue="0.1255" alpha="1.0" />
+    <color id="darkBeige" red="0.9843" green="0.8353" blue="0.5608" alpha="1.0" />
+    <color id="blue" red="0.2863" green="0.8627" blue="0.9961" alpha="1.0" />
+    <color id="pink" red="0.9882" green="0.5961" blue="0.6941" alpha="1.0" />
+    <color id="shadow" red="0.01" green="0.01" blue="0.01" alpha="1.0" />
+
+    <color id="blue" red="0.2863" green="0.8627" blue="0.9961" alpha="1.0" />
+    <color id="green" red="0.4314" green="0.9294" blue="0.1608" alpha="1.0" />
+    <color id="red" red="" green="" blue="" alpha="1.0" />
+    <color id="orange" red="0.9255" green="0.2667" blue="0.1843" alpha="1.0" />
+    <color id="" />
+
+    <gradient id="note" startColorID="lightYellow" endColorID="darkYellow" angle="90" />
+    <gradient id="quote" startColorID="lbackground" endColorID="background" angle="90" />
+
+    <shadow id="shadow" colorID="shadow" blurRadius="3" />
+
+    <backgroundStyle 
+        id="note"
+        maxWidth="0" xWeight="0"
+        maxHeight="0" yWeight="0"
+        cornerRadiusX="5" cornerRadiusY="5"
+        fillGradientID="note"
+        afterPositioningGrowWitdthBy ="15"
+        afterPositioningGrowHeigthBy ="2"
+        shadowID="shadow"
+    />
+
+    <backgroundStyle
+        id="quote"
+        maxWidth="0" xWeight="0"
+        maxHeight="0" yWeight="0"
+        cornerRadiusX="5" cornerRadiusY="5"
+        fillGradientID="quote"
+        afterPositioningGrowWitdthBy ="15"
+        afterPositioningGrowHeigthBy ="2"
+    />
+
+    <font id="base" name="Helvetica Neue Light" size="13" />
+    <font id="project" name="Helvetica Neue" fontTraitMask="NSBoldFontMask" size="24" />
+    <font id="note" name="Handwriting - Dakota" size="14" />
+    <font id="quote" name="Georgia" size="15" />
+
+    <characterStyle id="base" fontID="base" foregroundColorID="foreground" />
+    <characterStyle id="project" fontID="project" foregroundColorID="orange" />
+    <characterStyle id="note" fontID="note" foregroundColorID="background" />
+    <characterStyle id="tag" fontID="base" foregroundColorID="orage" />
+    <characterStyle id="done" foregroundColorID="orange" strikethroughStyle="NSUnderlineStyleSingle" />
+    <characterStyle id="quote" fontID="quote" foregroundColorID="blue" />
+    <characterStyle id="bib" fontID="base" foregroundColorID="green" />
+
+    <paragraphStyle id="base" paragraphSpacingBefore="0" paragraphSpacingAfter="0" paragraphSpacing="0" lineSpacing="1.5" alignment="NSLeftTextAlignment" />
+    <paragraphStyle id="project" paragraphSpacingBefore="36" paragraphSpacingAfter="24" paragraphSpacing="0" lineSpacing="0" />
+    <paragraphStyle id="note" lineSpacing="0" paragraphSpacingBefore="3" paragraphSpacing="3" lineHeightMultiple="0" />
+    <paragraphStyle id="quote" lineSpacing="3" paragraphSpacingBefore="3" paragraphSpacingAfter="3" paragraphSpacing="5" />
+
+    <window foregroundColorID="foreground" backgroundColorID="background" shouldUseHUDScrollers="yes" />
+
+    <textView
+        shouldAntialiasText="yes"
+        shouldShowNoteHandles="no"
+        shouldShowProjectHandles="yes"
+        defaultCharacterStyleID="base"
+        defaultParagraphStyleID="base"
+        textLeftEdgeAlignmentStyle="TPEntryAlignProjectsAndTasksAndNotesAlighmentStyle"
+        insertionPointColorID="green"
+        selectionColorID="pink"
+        handleColorID="orange"
+        tagColorID="orange"
+    />
+
+    <entryRule matchesQuery="type = &quot;project&quot;" lineCharacterStyleID="project" paragraphStyleID="project" />
+    <entryRule matchesQuery="type = task" lineCharacterStyleID="base" paragraphStyleID="base" />
+    <entryRule matchesQuery="type = note" lineCharacterStyleID="note" paragraphStyleID="note" backParagraphBackgroundStyleID="note" />
+    <entryRule matchesQuery="@quote" lineCharacterStyleID="quote" paragraphStyleID="quote" backParagraphBackgroundStyleID="quote" />
+    <entryRule matchesQuery="@bib" lineCharacterStyleID="bib" />
+    <entryRule matchesQuery="@done" contentCharacterStyleID="done" />
+</theme>

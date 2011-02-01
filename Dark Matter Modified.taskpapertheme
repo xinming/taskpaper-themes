@@ -1,0 +1,147 @@
+<theme>
+    <!-- Window Style -->
+    <color id="foreground" red="0.8039" green="0.9098" blue="0.3333" alpha="1.0" />
+    <color id="foregroundGroup" red="0.0" green="0.59" blue="0.84" alpha="1.0" />
+    <color id="foregroundOld" red="0.8" green="1.0" blue="0.4" alpha="1.0" />
+    <color id="background" red="0.1" green="0.1" blue="0.1" alpha="1.0" />
+    <window foregroundColorID="foreground" backgroundColorID="background" shouldUseHUDScrollers="yes" />
+
+    <!-- Text View Style -->
+    <color id="tag" red="0.4" green="0.4" blue="0.5" alpha="1.0" />
+    <color id="handle" red="0.51" green="0.57" blue="0.225" alpha="1.0" />
+    <color id="insertionPoint" red="1.0" green="1.0" blue="1.0" alpha="1.0" />
+    <color id="selection" red="0.2" green="0.2" blue="0.2" alpha="1.0" />
+    <font id="base" name="Lucida Grande" size="0" />
+    <characterStyle id="base" fontID="base" foregroundColorID="foreground" />
+    <paragraphStyle id="base" paragraphSpacingBefore="0" paragraphSpacing="0" lineSpacing="0" lineHeightMultiple="1.2" alignment="NSLeftTextAlignment" />
+    <textView
+        shouldAntialiasText="yes"
+        shouldShowNoteHandles="no"
+        shouldShowProjectHandles="yes"
+        defaultCharacterStyleID="base"
+        textLeftEdgeAlignmentStyle="TPEntryAlignProjectsAndTasksAndNotesAlignmentStyle"
+        insertionPointColorID="insertionPoint"
+        selectionColorID="selection"
+        handleColorID="handle"
+        tagColorID="tag"
+    />
+
+    <!-- Task style. This section defines the styles that are applied to task lines. -->
+    <color id="task" red="0.9" green="0.9" blue="0.9" alpha="1.0" />
+    <font id="task" extendsFontID="base" />
+    <characterStyle id="task" fontID="task" foregroundColorID="task" />
+    <entryRule matchesQuery="type = task" lineCharacterStyleID="task" paragraphStyleID="base" />
+
+    <!-- Project style. This section defines the styles that are applied to project lines. -->
+    <color id="project" red="0.0" green="0.72" blue="0.95" alpha="1.0" />
+    <font id="project" extendsFontID="base" fontTraitMask="NSBoldFontMask" />
+    <characterStyle id="project" fontID="project" foregroundColorID="project" />
+    <paragraphStyle id="project" extendsParagraphStyleID="base" paragraphSpacingBefore="10" paragraphSpacing="5" />
+    <entryRule matchesQuery="type = project" lineCharacterStyleID="project" paragraphStyleID="project" />
+    <!-- Note style. This section defines the styles that are applied to note lines. -->
+    <color id="note" red="0.5" green="0.5" blue="0.5" alpha="1.0" />
+    <font id="note" extendsFontID="base" size="11" fontTraitMask="NSItalicFontMask" />
+    <paragraphStyle id="note" extendsParagraphStyleID="base" paragraphSpacingBefore="5" paragraphSpacing="5" />
+    <characterStyle id="note" fontID="note" foregroundColorID="note" />
+    <entryRule matchesQuery="type = note" lineCharacterStyleID="note" paragraphStyleID="note" />
+
+    <!-- GroupHeader style. This section defines the styles that are applied to groupHeader lines. (top level projects) -->
+    <color id="groupHeader" extendsColorID="foreground" />
+    <font id="groupHeader" extendsFontID="base" fontTraitMask="NSBoldFontMask" size="16" />
+    <characterStyle id="groupHeader" fontID="groupHeader" foregroundColorID="groupHeader" />
+    <paragraphStyle id="groupHeader" extendsParagraphStyleID="base" lineHeightMultiple="1.0" paragraphSpacingBefore="30" paragraphSpacing="9" />
+    <entryRule matchesQuery="isgroupheader" paragraphStyleID="groupHeader" lineCharacterStyleID="groupHeader" />
+
+    <color id="special" red="0.23" green="0.85" blue="0.27" alpha="1.0" />
+    <characterStyle id="special" fontID="base" foregroundColorID="special" />
+    <entryRule matchesQuery="@ask and not @done" lineCharacterStyleID="special" />
+
+    <color id="fix" red="1.0" green="0.3" blue="0.10" alpha="1.0" />
+    <characterStyle id="fix" fontID="base" foregroundColorID="fix" />
+        <backgroundStyle
+            id="fixBackground"
+            cornerRadiusX="7"
+            cornerRadiusY="7"
+            fillGradientID="redGradient"
+            afterPositioningGrowWidthBy ="20"
+            afterPositioningGrowHeightBy ="2"
+            shadowID="blackShadow"
+        />
+    <entryRule matchesQuery="FIX and not @done" lineCharacterStyleID="fix" paragraphStyleID="lineHighlight" backParagraphBackgroundStyleID="fixBackground" />
+
+    <characterStyle id="yellowHighlight" fontID="project" foregroundColorID="yellowHighlight" />
+    <entryRule matchesQuery="@highlight and not @done" lineCharacterStyleID="yellowHighlight" paragraphStyleID="lineHighlight" backParagraphBackgroundStyleID="yellowHighlight" />
+
+    <entryRule matchesQuery="@today and not @done"  paragraphStyleID="lineHighlight" backParagraphBackgroundStyleID="blueHighlight" />
+
+       <!-- bold style for prio(1) tasks. --> 
+        <font id="lineHighlight" extendsFontID="base" fontTraitMask="NSBoldFontMask" /> 
+        <color id="prio1" red="1.0" green="0.7" blue="0.20" alpha="1.0" />
+        <characterStyle id="prio1" fontID="base" foregroundColorID="prio1" />
+        <paragraphStyle id="lineHighlight" extendsParagraphStyleID="base" lineSpacing="3" paragraphSpacingBefore="7" paragraphSpacing="0" lineHeightMultiple="0" />
+        <entryRule matchesQuery="@prio=1 and not @done"
+                paragraphStyleID="lineHighlight" lineCharacterStyleID="prio1"
+                backParagraphBackgroundStyleID="lineHighlight" /> 
+        <backgroundStyle
+            id="yellowHighlight"
+            maxWidth="0" xWeight="0"
+            maxHeight="0" yWeight="0"
+            cornerRadiusX="5" cornerRadiusY="5"
+            fillGradientID="yellowGradient"
+            afterPositioningGrowWidthBy ="15"
+            afterPositioningGrowHeightBy ="2"
+            shadowID="blackShadow"
+        />
+        <backgroundStyle
+            id="blueHighlight"
+            maxWidth="0" xWeight="0"
+            maxHeight="0" yWeight="0"
+            cornerRadiusX="5" cornerRadiusY="5"
+            fillGradientID="blueGradient"
+            afterPositioningGrowWidthBy ="15"
+            afterPositioningGrowHeightBy ="2"
+            shadowID="blackShadow"
+        />
+        <backgroundStyle
+            id="lineHighlight"
+            maxWidth="0" xWeight="0"
+            maxHeight="0" yWeight="0"
+            cornerRadiusX="5" cornerRadiusY="5"
+            fillGradientID="lineHighlight"
+            afterPositioningGrowWidthBy ="15"
+            afterPositioningGrowHeightBy ="2"
+            shadowID="blackShadow"
+        />
+
+        <backgroundStyle id="nothing" fillGradientID="nothing" afterPositioningGrowWidthBy ="20" afterPositioningGrowHeightBy ="2" />
+        <gradient id="nothing" startColorID="background" endColorID="background" angle="0" />
+
+        <shadow id="greyShadow" colorID="lineHighlight" blurRadius="10" />
+        <shadow id="blackShadow" colorID="black25" blurRadius="5" />
+
+        <gradient id="lineHighlight" startColorID="lineHighlight" endColorID="lineHighlight" angle="0" />
+        <color id="lineHighlight" red="0.8" green="0.9" blue="1.0" alpha="0.2" />
+        <color id="clear" red="1.0" green="1.0" blue="1.0" alpha="0.0" />
+        <color id="black25" red="0" green="0" blue="0" alpha="0.25" />
+        <color id="yellowHighlight" red="0" green="0" blue="0" alpha="0.85" />
+
+        <color id="lightYellow" red="0.9" green="0.9" blue="0.0" alpha="1.0" />
+        <color id="mediumYellow" red="0.9" green="0.7" blue="0.0" alpha="1.0" />
+        <gradient id="yellowGradient" startColorID="lightYellow" endColorID="mediumYellow" angle="90" />
+
+        <color id="mediumBlue" red="0.25" green="0.25" blue="0.5" alpha="1.0" />
+        <color id="darkBlue" red="0.15" green="0.15" blue="0.3" alpha="1.0" />
+        <gradient id="blueGradient" startColorID="mediumBlue" endColorID="darkBlue" angle="90" />
+
+        <color id="mediumRed" red="0.3" green="0.1" blue="0.0" alpha="1.0" />
+        <color id="darkRed" red="0.2" green="0.0" blue="0.0" alpha="1.0" />
+        <gradient id="redGradient" startColorID="mediumRed" endColorID="darkRed" angle="90" />
+
+
+    <!-- @done style. This section defines the styles that are applied to lines tagged with @done. -->
+    <color id="done" red="0.5" green="0.45" blue="0.4" alpha="1.0" />
+    <characterStyle id="done" foregroundColorID="done" strikethroughStyle="NSUnderlineStyleSingle" />
+    <entryRule matchesQuery="@done" contentCharacterStyleID="done" backParagraphBackgroundStyleID="NULL" />
+
+
+</theme>
